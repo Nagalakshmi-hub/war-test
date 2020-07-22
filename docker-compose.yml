@@ -1,0 +1,13 @@
+version: '3'
+services:
+  devops-wartest:
+    build: .
+    ports:
+     - "8083:8080"
+  mysql-db:
+    container_name: mysql-dbtest
+    image: "mysql/mysql-server:5.7" 
+    ports:
+      - "3306:3306"
+    links:
+      - devops-wartest
